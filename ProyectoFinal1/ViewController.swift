@@ -8,18 +8,33 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        usuarioLog.append(UsuarioModelo(0, "Tulador", "Resendiz", "Campos", "murmi@lasalle.com","477 123 4567", "no binarie", "123", "123","versatil"))
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
+    
+    
+    @IBOutlet weak var txtUsuario: NSTextField!
+    
+    @IBOutlet weak var txtPassword: NSTextField!
+    
+    @objc dynamic var usuarioLog:[UsuarioModelo] = []
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        //agregar
+        if segue.identifier=="registrarUsuarioSegue"{
+            (segue.destinationController as! RegistrarUsuario).vc = self
         }
     }
+    
+    
+    
+    @IBAction func iniciarSesion(_ sender: NSButton) {
+        
+    }
+    
+    //a
+    
 
 
 }
