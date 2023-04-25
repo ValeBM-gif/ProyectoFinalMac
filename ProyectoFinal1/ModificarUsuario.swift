@@ -10,7 +10,7 @@ import Cocoa
 class ModificarUsuario: NSViewController {
 
     @IBOutlet weak var vc: ViewController!
-    
+
     @IBOutlet weak var txtNombre: NSTextField!
     @IBOutlet weak var txtApellidoPaterno: NSTextField!
     @IBOutlet weak var txtApellidoMaterno: NSTextField!
@@ -21,13 +21,20 @@ class ModificarUsuario: NSViewController {
     
     @IBOutlet weak var btnActualizar: NSButton!
     
-    var flag:Bool = false
+    var flag:Bool = true
     var position:Int = 0
+    var idDeUsuarioRecibido:Int = 0
+    @objc dynamic var usuarioLog:[UsuarioModelo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(idDeUsuarioRecibido)
         btnActualizar.isEnabled = flag
+        
+        let usuarioActual = vc.usuarioLog
+        idDeUsuarioRecibido = vc.idUsuarioActual
+        
+        print("nombre usuario mandado:",vc.usuarioLog[idDeUsuarioRecibido].nombre)
         
         if flag{
             txtNombre.stringValue = vc.usuarioLog[position].nombre

@@ -11,6 +11,8 @@ class RegistrarUsuario: NSViewController {
 
     @IBOutlet weak var vc: ViewController!
     
+    
+    
     @IBOutlet weak var txtNombre: NSTextField!
     @IBOutlet weak var txtApellidoPaterno: NSTextField!
     @IBOutlet weak var txtApellidoMaterno: NSTextField!
@@ -25,9 +27,14 @@ class RegistrarUsuario: NSViewController {
     
     var flag:Bool = false
     var position:Int = 0
+    @objc dynamic var usuarioLog:[UsuarioModelo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for usuario in usuarioLog{
+            print(usuario.nombre)
+        }
         
         btnRegistrar.isEnabled = !flag
         
