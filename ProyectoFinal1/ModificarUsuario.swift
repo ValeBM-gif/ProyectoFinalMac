@@ -24,11 +24,11 @@ class ModificarUsuario: NSViewController {
     var flag:Bool = true
     var position:Int = 0
     var idDeUsuarioRecibido:Int = 0
-    @objc dynamic var usuarioLog:[UsuarioModelo] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(idDeUsuarioRecibido)
+        print("id usuario recibido",idDeUsuarioRecibido)
         btnActualizar.isEnabled = flag
         
         let usuarioActual = vc.usuarioLog
@@ -46,5 +46,16 @@ class ModificarUsuario: NSViewController {
             txtRol.stringValue = vc.usuarioLog[position].rol
         }
     }
+    
+    @IBAction func actualizarUsuario(_ sender: NSButton) {
+        vc.usuarioLog[idDeUsuarioRecibido].nombre = txtNombre.stringValue
+        vc.usuarioLog[idDeUsuarioRecibido].apellidoMaterno = txtApellidoMaterno.stringValue
+        vc.usuarioLog[idDeUsuarioRecibido].apellidoPaterno = txtApellidoPaterno.stringValue
+        vc.usuarioLog[idDeUsuarioRecibido].email = txtEmail.stringValue
+        vc.usuarioLog[idDeUsuarioRecibido].telefono = txtTelefono.stringValue
+        vc.usuarioLog[idDeUsuarioRecibido].genero = txtGenero.stringValue
+        vc.usuarioLog[idDeUsuarioRecibido].rol = txtRol.stringValue
+    }
+    
     
 }

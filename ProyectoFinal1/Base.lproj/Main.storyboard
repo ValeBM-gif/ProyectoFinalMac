@@ -872,9 +872,19 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axR-ar-Ht0">
+                                <rect key="frame" x="165" y="20" width="120" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Inserta un ID válido" id="9cn-GW-Xc8">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="lblIDIncorrecto" destination="axR-ar-Ht0" id="9tT-JV-Xbt"/>
                         <outlet property="txtID" destination="xKE-tB-M2u" id="7rt-ee-dvC"/>
                         <outlet property="txtNombreUsuario" destination="41o-xO-mCh" id="4Lw-ep-Lem"/>
                         <segue destination="0dI-L0-DqN" kind="modal" identifier="irAModificar" id="R01-Ib-HwN"/>
@@ -926,6 +936,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="actualizarUsuario:" target="0dI-L0-DqN" id="wJG-hs-T6S"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kv9-FX-VPw">
                                 <rect key="frame" x="84" y="383" width="57" height="16"/>
@@ -1260,6 +1273,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="58r-KP-1cZ"/>
+        <segue reference="I0U-A5-VRi"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,41 +12,54 @@ class MenuAdmin: NSViewController {
     @IBOutlet weak var vc: ViewController!
     
     var idUsuarioActual:Int!
+    var idUsuarioAModificar:Int=0
     
     @IBOutlet weak var txtNombreUsuario: NSTextField!
     @IBOutlet weak var txtID: NSTextField!
+    @IBOutlet weak var lblIDIncorrecto: NSTextField!
     
-    @objc dynamic var usuarioLog:[UsuarioModelo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for usuario in usuarioLog{
-            print(usuario.nombre)
-        }
+        lblIDIncorrecto.isHidden = true
         
         let usuarioActual = vc.usuarioLog
         idUsuarioActual = vc.idUsuarioActual    
-        print("num de usuarios",usuarioActual.count)
+        print("num de usuarios",vc.usuarioLog.count)
         
         txtNombreUsuario.stringValue = "Bienvenido " + usuarioActual[idUsuarioActual].nombre
         
     }
     
+    @IBAction func irModificar(_ sender: NSButton) {
+        idUsuarioAModificar = txtID.integerValue
+        
+            if verificarSiUsuarioExiste(){
+                print("si hay usuarios y si es id válido")
+                performSegue(withIdentifier: "irAModificar", sender: self)
+            }
+        }
+    
     func verificarSiUsuarioExiste() -> Bool{
         if !vc.usuarioLog.isEmpty{
-            return true;
+            print("log no esta vacío")
+            print("usuario log count",vc.usuarioLog.count)
+            print("id usuario a modificar",idUsuarioAModificar)
+            return checarExistenciaUsuario(id: idUsuarioAModificar)
         }
         return false;
     }
     
-    @IBAction func irModificar(_ sender: NSButton) {
-        idUsuarioActual = txtID.integerValue
-            if verificarSiUsuarioExiste(){
-                print("si hay usuarios")
-                performSegue(withIdentifier: "irAModificar", sender: self)
+    func checarExistenciaUsuario(id:Int) -> Bool{
+        for UsuarioModelo in vc.usuarioLog {
+            if (UsuarioModelo.id == id ) {
+                lblIDIncorrecto.isHidden = true
+                return true
             }
         }
+        lblIDIncorrecto.isHidden = false
+        return false
+    }
         
         override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
             
@@ -57,8 +70,8 @@ class MenuAdmin: NSViewController {
                 
                 let destinationVC = segue.destinationController as! ModificarUsuario;
 
-                destinationVC.idDeUsuarioRecibido = idUsuarioActual
-                print("valor id en menu: ",idUsuarioActual)
+                destinationVC.idDeUsuarioRecibido = idUsuarioAModificar
+                print("valor id en menu: ",idUsuarioAModificar)
             }
         }
     

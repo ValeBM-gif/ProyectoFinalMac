@@ -43,7 +43,6 @@ class ViewController: NSViewController {
             
             let destinationVC = segue.destinationController as! MenuAdmin;
             
-            destinationVC.usuarioLog = usuarioLog
             
         }
     }
