@@ -11,6 +11,8 @@ class RegistrarUsuario: NSViewController {
 
     @IBOutlet weak var vc: ViewController!
     
+    
+    
     @IBOutlet weak var txtNombre: NSTextField!
     @IBOutlet weak var txtApellidoPaterno: NSTextField!
     @IBOutlet weak var txtApellidoMaterno: NSTextField!

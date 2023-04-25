@@ -14,6 +14,7 @@
 		D6767DD429F0BB8600260906 /* UsuarioModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6767DD329F0BB8600260906 /* UsuarioModelo.swift */; };
 		D6767DD829F0BCEB00260906 /* RegistrarUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6767DD729F0BCEB00260906 /* RegistrarUsuario.swift */; };
 		D6A9DF6D29F1FE0200D9CEE3 /* ModificarUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A9DF6C29F1FE0200D9CEE3 /* ModificarUsuario.swift */; };
+		F115BC2B29F7B1C200417F13 /* MenuAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F115BC2A29F7B1C200417F13 /* MenuAdmin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D6767DD329F0BB8600260906 /* UsuarioModelo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioModelo.swift; sourceTree = "<group>"; };
 		D6767DD729F0BCEB00260906 /* RegistrarUsuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarUsuario.swift; sourceTree = "<group>"; };
 		D6A9DF6C29F1FE0200D9CEE3 /* ModificarUsuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModificarUsuario.swift; sourceTree = "<group>"; };
+		F115BC2A29F7B1C200417F13 /* MenuAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAdmin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				D6767DC629F0AF9F00260906 /* ViewController.swift */,
 				D6767DC829F0AF9F00260906 /* Assets.xcassets */,
 				D6767DCA29F0AF9F00260906 /* Main.storyboard */,
+				F115BC2A29F7B1C200417F13 /* MenuAdmin.swift */,
 				D6A9DF6C29F1FE0200D9CEE3 /* ModificarUsuario.swift */,
 				D6767DD329F0BB8600260906 /* UsuarioModelo.swift */,
 				D6767DD729F0BCEB00260906 /* RegistrarUsuario.swift */,
@@ -144,6 +147,7 @@
 				D6A9DF6D29F1FE0200D9CEE3 /* ModificarUsuario.swift in Sources */,
 				D6767DC729F0AF9F00260906 /* ViewController.swift in Sources */,
 				D6767DC529F0AF9F00260906 /* AppDelegate.swift in Sources */,
+				F115BC2B29F7B1C200417F13 /* MenuAdmin.swift in Sources */,
 				D6767DD429F0BB8600260906 /* UsuarioModelo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
