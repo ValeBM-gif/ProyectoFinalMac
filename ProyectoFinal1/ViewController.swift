@@ -10,7 +10,7 @@ import Cocoa
 class ViewController: NSViewController {
     
     override func viewDidLoad() {
-        usuarioLog.append(UsuarioModelo(0, "Tulador", "Resendiz", "Campos", "murmi@lasalle.com","477 123 4567", "no binarie", "123", "123","versatil"))
+        usuarioLog.append(UsuarioModelo(0, "Tula", "Resendiz", "Campos", "murmi@lasalle.com","477 123 4567", "no binarie", "123", "123","admin"))
         for usuario in usuarioLog{
             print(usuario.nombre)
         }
@@ -34,15 +34,9 @@ class ViewController: NSViewController {
         if segue.identifier=="registrarUsuarioSegue"{
             (segue.destinationController as! RegistrarUsuario).vc = self
             
-            let destinationVC = segue.destinationController as! RegistrarUsuario;
-            
-            destinationVC.usuarioLog = usuarioLog
             
         }
         else if segue.identifier=="iniciarSesionCorrecto"{(segue.destinationController as! MenuAdmin).vc = self
-            
-            let destinationVC = segue.destinationController as! MenuAdmin;
-            
             
         }
     }
@@ -52,6 +46,7 @@ class ViewController: NSViewController {
         let resultadoLogin = login(username: txtUsuario.stringValue, password: txtPassword.stringValue)
                
                if(resultadoLogin is UsuarioModelo){
+                   lblIncorrecto.isHidden = true
                    let UsuarioActual = resultadoLogin as! UsuarioModelo
                    idUsuarioActual=UsuarioActual.id
                    performSegue(withIdentifier: "iniciarSesionCorrecto", sender: self)
