@@ -9,18 +9,6 @@ import Cocoa
 
 class ViewController: NSViewController {
     
-    override func viewDidLoad() {
-        usuarioLog.append(UsuarioModelo(0, "Tula", "Resendiz", "Campos", "murmi@lasalle.com","477 123 4567", "no binarie", "123", "123","admin"))
-        for usuario in usuarioLog{
-            print(usuario.nombre)
-        }
-        lblIncorrecto.isHidden=true
-    }
-    
-    override func viewDidAppear(){
-        self.view.window?.title = "Iniciar sesión"
-    }
-    
     @IBOutlet weak var txtUsuario: NSTextField!
     @IBOutlet weak var txtPassword: NSTextField!
     @IBOutlet weak var lblIncorrecto: NSTextField!
@@ -29,20 +17,19 @@ class ViewController: NSViewController {
     
     var idUsuarioActual: Int!
     
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        //agregar
-        if segue.identifier=="registrarUsuarioSegue"{
-            (segue.destinationController as! RegistrarUsuario).vc = self
-            
-            
-        }
-        else if segue.identifier=="iniciarSesionCorrecto"{(segue.destinationController as! MenuAdmin).vc = self
-            
-        }
-    }
+    override func viewDidLoad() {
+        
+        usuarioLog.append(UsuarioModelo(0, "Uriel", "Resendiz", "Medina", "murmi@lasalle.com","477 123 4567", "no binarie", "123", "123","admin"))
 
+        lblIncorrecto.isHidden=true
+    }
+    
+    override func viewDidAppear(){
+        self.view.window?.title = "Iniciar sesión"
+    }
     
     @IBAction func iniciarSesion(_ sender: NSButton) {
+        
         let resultadoLogin = login(username: txtUsuario.stringValue, password: txtPassword.stringValue)
                
                if(resultadoLogin is UsuarioModelo){
@@ -66,6 +53,14 @@ class ViewController: NSViewController {
         return false
     }
 
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.identifier=="registrarUsuarioSegue"{
+            (segue.destinationController as! RegistrarUsuario).vc = self
+        }
+        else if segue.identifier=="iniciarSesionCorrecto"{(segue.destinationController as! MenuAdmin).vc = self
+            
+        }
+    }
     
 
 
