@@ -1,6 +1,6 @@
 //
 //  MenuAdmin.swift.
-//  ProyectoFinal1
+//  ProyectoFinal1.
 //
 //  Created by Diego Juárez on 25/04/23.
 //
