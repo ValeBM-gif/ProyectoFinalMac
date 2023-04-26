@@ -9,9 +9,18 @@ import Cocoa
 
 class ViewController: NSViewController {
     
+    @IBOutlet weak var txtUsuario: NSTextField!
+    @IBOutlet weak var txtPassword: NSTextField!
+    @IBOutlet weak var lblIncorrecto: NSTextField!
+    
+    @objc dynamic var usuarioLog:[UsuarioModelo] = []
+    
+    var idUsuarioActual: Int!
+    
     override func viewDidLoad() {
-        usuarioLog.append(UsuarioModelo(0, "Tulador", "Resendiz", "Campos", "murmi@lasalle.com","477 123 4567", "no binarie", "123", "123","versatil"))
         
+        usuarioLog.append(UsuarioModelo(0, "Uriel", "Resendiz", "Medina", "murmi@lasalle.com","477 123 4567", "no binarie", "123", "123","admin"))
+
         lblIncorrecto.isHidden=true
     }
     
@@ -19,30 +28,12 @@ class ViewController: NSViewController {
         self.view.window?.title = "Iniciar sesión"
     }
     
-    @IBOutlet weak var txtUsuario: NSTextField!
-    
-    @IBOutlet weak var txtPassword: NSTextField!
-    
-    @IBOutlet weak var lblIncorrecto: NSTextField!
-    
-    @objc dynamic var usuarioLog:[UsuarioModelo] = []
-    
-    var idUsuarioActual: Int!
-    
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        //agregar
-        if segue.identifier=="registrarUsuarioSegue"{
-            (segue.destinationController as! RegistrarUsuario).vc = self
-        }
-        else if segue.identifier=="iniciarSesionCorrecto"{(segue.destinationController as! MenuAdmin).vc = self
-        }
-    }
-
-    
     @IBAction func iniciarSesion(_ sender: NSButton) {
+        
         let resultadoLogin = login(username: txtUsuario.stringValue, password: txtPassword.stringValue)
                
                if(resultadoLogin is UsuarioModelo){
+                   lblIncorrecto.isHidden = true
                    let UsuarioActual = resultadoLogin as! UsuarioModelo
                    idUsuarioActual=UsuarioActual.id
                    performSegue(withIdentifier: "iniciarSesionCorrecto", sender: self)
@@ -62,6 +53,14 @@ class ViewController: NSViewController {
         return false
     }
 
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.identifier=="registrarUsuarioSegue"{
+            (segue.destinationController as! RegistrarUsuario).vc = self
+        }
+        else if segue.identifier=="iniciarSesionCorrecto"{(segue.destinationController as! MenuAdmin).vc = self
+            
+        }
+    }
     
 
 
