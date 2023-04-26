@@ -1,5 +1,5 @@
 //
-//  RegistrarUsuario.swift
+//  RegistrarUsuario.swift.
 //  ProyectoFinal1
 //
 //  Created by Valeria Baeza on 19/04/23.
