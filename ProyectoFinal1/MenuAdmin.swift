@@ -47,6 +47,21 @@ class MenuAdmin: NSViewController {
             
         }
     
+    override var representedObject: Any? {
+        didSet {
+        // Update the view, if already loaded.
+        }
+    }
+    
+    
+    @IBAction func irConsultar(_ sender: NSButton) {
+        
+        performSegue(withIdentifier: "irAConsultar", sender: self)
+    }
+    
+    
+    
+    
     func verificarSiUsuarioLogVacio() -> Bool{
         if !vc.usuarioLog.isEmpty{
             return checarExistenciaUsuario(id: idUsuarioAModificar)
@@ -88,9 +103,17 @@ class MenuAdmin: NSViewController {
                 destinationVC.idUsuarioAModificar = idUsuarioAModificar
                 print("valor id en menu: ",vc.usuarioLog[idUsuarioAModificar].id)
             }
-        else   if segue.identifier=="irARegistrar"{
+        
+        else if segue.identifier=="irARegistrar"{
+            
             (segue.destinationController as! RegistrarUsuario).vc = self.vc
             
+        }
+        
+        else if segue.identifier=="irAConsultar"{
+            
+            (segue.destinationController as! ConsultarUsuario).usuarioLog = vc.usuarioLog
+            (segue.destinationController as! ConsultarUsuario).vcTabla = self.vc
             
         }
             
